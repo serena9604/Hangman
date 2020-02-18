@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=HangingMan
+comment1.params=
+comment1.target=HangingMan()
+comment2.params=
+comment2.target=void\ show()
+comment2.text=public\ String\ toString()\ {\r\n\ \ \ \ String\ breakApart\ \=\ "";\r\n\ \ \ \ for\ (int\ r\ \=\ 0;\ r\ <\ h.length;\ r\ ++)\ {\r\n\ \ \ \ breakApart\ \=\ h[r];\r\n\ \ \ \ return\ breakApart;\r\n\ \ \ \ }\r\n\ \ \ \ }\r\n
+comment3.params=
+comment3.target=void\ dieSomeMore()
+comment4.params=
+comment4.target=boolean\ isntDead()
+numComments=5
