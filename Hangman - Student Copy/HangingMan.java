@@ -91,18 +91,17 @@ public class HangingMan {
         };
     }
 
-    /*public String toString() {
-    String breakApart = "";
-    for (int r = 0; r < h.length; r ++) {
-    breakApart = h[r];
-    return breakApart;
+    public static void printString(String[] h) {
+        String breakApart = "";
+        for (int r = 0; r < h.length; r ++) {
+            System.out.print(h[r] + "Mike" + h.length);
+
+        }
     }
-    }
-     */
 
     public void show () {
         //picks which picture to show
-        System.out.println(h);
+        printString(h);
     }
 
     public void dieSomeMore() {
