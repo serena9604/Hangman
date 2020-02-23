@@ -2,8 +2,8 @@
 comment0.target=HangingMan
 comment1.params=
 comment1.target=HangingMan()
-comment2.params=h
-comment2.target=void\ printString(java.lang.String[])
+comment2.params=h\ r
+comment2.target=void\ printString(java.lang.String[],\ int)
 comment3.params=
 comment3.target=void\ show()
 comment4.params=
