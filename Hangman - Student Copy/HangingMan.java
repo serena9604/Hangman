@@ -105,17 +105,23 @@ public class HangingMan {
     public void show () {
         //picks which picture to show
         if (lives == 6) {
-            printString(h, 0);
+            //printString(h, 0);
+            System.out.print(h[0]);
         } else if (lives == 5) {
-            printString(h, 1);
+            // printString(h, 1);
+            System.out.print(h[1]);
         } else if (lives == 4) {
-            printString(h, 2);
+            //printString(h, 2);
+            System.out.print(h[2]);
         } else if (lives == 3) {
-            printString(h, 3);
+            //printString(h, 3);
+            System.out.print(h[3]);
         } else if (lives == 2) {
-            printString(h, 4);
+            // printString(h, 4);
+            System.out.print(h[4]);
         } else if (lives == 1) {
-            printString(h, 5);
+            //printString(h, 5);
+            System.out.print(h[5]);
         } 
     }
 
@@ -127,7 +133,7 @@ public class HangingMan {
     public boolean isntDead(){
         //check to see if hangman is dead or not
         //checks whether all his parts are hanging from tree or not
-        if (lives == 0) return true;
-        else return false;
+        if (lives == 0) return false;
+        else return true;
     }
 }

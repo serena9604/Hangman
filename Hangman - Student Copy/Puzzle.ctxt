@@ -2,7 +2,7 @@
 comment0.target=Puzzle
 comment1.params=
 comment1.target=Puzzle()
-comment2.params=puzzle
+comment2.params=p
 comment2.target=void\ printString(java.util.ArrayList)
 comment3.params=
 comment3.target=void\ show()

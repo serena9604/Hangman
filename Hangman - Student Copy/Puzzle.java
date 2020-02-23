@@ -11,7 +11,7 @@ public class Puzzle
     String tempWord ="";
     ArrayList<String> guess = new ArrayList<String>();
     ArrayList<String> puzzle = new ArrayList<String>(); 
-    ArrayList<String> wordList = new ArrayList<String>();
+    ArrayList<String> guesses = new ArrayList<String>();
     ArrayList<String> words= new ArrayList<String>();
 
     public Puzzle() {
@@ -23,7 +23,7 @@ public class Puzzle
             Scanner scanner = new Scanner(file);
 
             while (scanner.hasNext()) {
-                String tempWord = scanner.next().toUpperCase();
+                String tempWord = scanner.next().toLowerCase();
                 words.add(tempWord);
             }
             scanner.close();
@@ -37,26 +37,42 @@ public class Puzzle
         }
 
         for (int i = 0; i < puzzle.size(); i ++) {
-            for (int j = 0; j < guess.size(); j ++) {
-                if (guess.get(i).equals(puzzle.get(j))) puzzle.set(j, guess.get(i)); 
-                else puzzle.set(j, "_");
+            for (int k = 0; k < tempWord.length(); k ++) {
+                puzzle.add(k, tempWord.substring(k, k + 1));
             }
         }
-
-        for (int k = 0; k < tempWord.length(); k ++) {
-            puzzle.set(k, tempWord.substring(k, k + 1));
+        /* for (int i = 0; i < puzzle.size(); i ++) {
+        for (int j = 0; j < guesses.size(); j ++) {
+        if (guesses.get(i).equals(puzzle.get(j))) puzzle.set(j, guesses.get(i)); 
+        else puzzle.set(j, "_");
         }
+        }
+         */
     }
 
-    public static void printString(ArrayList<String> puzzle) {
-        for (int i = 0; i < puzzle.size(); i ++) {
-            System.out.println(puzzle.get(i));
+    public static void printString(ArrayList<String> p) {
+        for (int i = 0; i < p.size(); i ++) {
+            System.out.println(p.get(i));
         }
     }
 
     public void show () {
         //shows combination of words and blanks chosen in Puzzle
-        printString(puzzle);
+        for (int i = 0; i < puzzle.size(); i ++) {
+            if (guesses.contains(puzzle.get(i))){
+                System.out.print(puzzle.get(i));
+            } else System.out.print("_");
+            System.out.println("mike");
+        }
+        System.out.println();
+        System.out.print("You're guesses are: ");
+        for (int i = 0; i < guess.size(); i ++) {
+            if (i == 0) {
+                System.out.print(guess.get(i));
+            } else {
+                System.out.print(", " + guess.get(i));
+            }
+        }
 
     }
 
@@ -70,15 +86,16 @@ public class Puzzle
                 }
             }
         }
-        if (sum == puzzle.size()) return true;
-        else return false;
+        if (sum == puzzle.size()) return false;
+        else return true;
     }
 
     public boolean makeGuess(String g) {
         //makes the guess
         //adds to collection of guessed letters: can make it ArrayList OR String
         //when code puzzle, print underscore if letter not in list of guesses and print letter letter if in list of guesses
-        guess.add(g);
+        boolean correct = false;
+        guesses.add(g);
         if (puzzle.contains(g)) {
             return true;
         }
@@ -87,7 +104,6 @@ public class Puzzle
 
     public String getWord() {
         //gets the word from the file
-
         return tempWord;
     }
 
