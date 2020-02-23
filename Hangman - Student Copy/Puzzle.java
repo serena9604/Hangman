@@ -13,10 +13,12 @@ public class Puzzle
     ArrayList<String> puzzle = new ArrayList<String>(); 
     ArrayList<String> guesses = new ArrayList<String>();
     ArrayList<String> words= new ArrayList<String>();
+    ArrayList<String> theWord = new ArrayList<String>();
 
     public Puzzle() {
         //picks combination of words and blanks to show
         words = new ArrayList<String>();
+        //puzzle = new ArrayList<String>();
 
         try {
             File file = new File("words.txt");
@@ -36,11 +38,11 @@ public class Puzzle
             e.printStackTrace();
         }
 
-        for (int i = 0; i < puzzle.size(); i ++) {
-            for (int k = 0; k < tempWord.length(); k ++) {
-                puzzle.add(k, tempWord.substring(k, k + 1));
-            }
+        for (int k = 0; k < tempWord.length(); k ++) {
+            theWord.add(k, tempWord.substring(k, k + 1));
+            //puzzle.add(k, "_");
         }
+
         /* for (int i = 0; i < puzzle.size(); i ++) {
         for (int j = 0; j < guesses.size(); j ++) {
         if (guesses.get(i).equals(puzzle.get(j))) puzzle.set(j, guesses.get(i)); 
@@ -51,6 +53,8 @@ public class Puzzle
     }
 
     public static void printString(ArrayList<String> p) {
+        //junk code
+        //replaced with show function
         for (int i = 0; i < p.size(); i ++) {
             System.out.println(p.get(i));
         }
@@ -58,19 +62,18 @@ public class Puzzle
 
     public void show () {
         //shows combination of words and blanks chosen in Puzzle
-        for (int i = 0; i < puzzle.size(); i ++) {
-            if (guesses.contains(puzzle.get(i))){
-                System.out.print(puzzle.get(i));
+        for (int i = 0; i < theWord.size(); i ++) {
+            if (puzzle.contains(theWord.get(i))){
+                System.out.print(theWord.get(i));
             } else System.out.print("_");
-            System.out.println("mike");
         }
         System.out.println();
         System.out.print("You're guesses are: ");
-        for (int i = 0; i < guess.size(); i ++) {
+        for (int i = 0; i < guesses.size(); i ++) {
             if (i == 0) {
-                System.out.print(guess.get(i));
+                System.out.print(guesses.get(i));
             } else {
-                System.out.print(", " + guess.get(i));
+                System.out.print(", " + guesses.get(i));
             }
         }
 
@@ -78,15 +81,18 @@ public class Puzzle
 
     public boolean isUnsolved() {
         //checks to see if you have guessed all the letters in the puzzle or not
-        int sum = 0;
-        for (int i = 0; i < guess.size(); i ++) {
-            for (int j = 0; j < puzzle.size(); j ++) {
-                if (puzzle.get(j) == guess.get(i)) {
-                    sum ++;
-                }
-            }
+        /*  int sum = 0;
+        for (int i = 0; i < guesses.size(); i ++) {
+        for (int j = 0; j < puzzle.size(); j ++) {
+        if (puzzle.get(j) == guess.get(i)) {
+        sum ++;
         }
-        if (sum == puzzle.size()) return false;
+        }
+        }
+        if (sum == puzzle.size() && sum > 0) return false;
+        else return true;
+         */
+        if (puzzle.size() == theWord.size() && puzzle.size() > 0) return false;
         else return true;
     }
 
@@ -96,7 +102,8 @@ public class Puzzle
         //when code puzzle, print underscore if letter not in list of guesses and print letter letter if in list of guesses
         boolean correct = false;
         guesses.add(g);
-        if (puzzle.contains(g)) {
+        if (theWord.contains(g)) {
+            puzzle.add(g);
             return true;
         }
         else return false;

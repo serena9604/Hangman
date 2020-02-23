@@ -7,8 +7,8 @@ public class HangmanGame {
         Scanner scanner = new Scanner(System.in);
         HangingMan hangingMan = new HangingMan();
         Puzzle puzzle = new Puzzle();
-        System.out.println("puzzle.isUnsolved(): " + puzzle.isUnsolved());
-        System.out.println("hangingMan.isntDead(): " + hangingMan.isntDead());
+        //System.out.println("puzzle.isUnsolved(): " + puzzle.isUnsolved());
+        //System.out.println("hangingMan.isntDead(): " + hangingMan.isntDead());
 
         while (puzzle.isUnsolved() && hangingMan.isntDead()) {
             hangingMan.show();
